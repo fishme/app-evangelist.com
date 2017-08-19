@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
-
-declare let require: any;
-const RemoteInstance = require('directus-sdk-javascript/remote');
+import {DataProvider, DataObjectStories, DataObjectMeta} from '../../providers/DataProvider';
 
 
 @Component({
@@ -11,17 +9,44 @@ const RemoteInstance = require('directus-sdk-javascript/remote');
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public client;
-  constructor(public navCtrl: NavController) {
-    this.client = new RemoteInstance({
-      url: 'http://backend.app-evangelist.com/api/1.1/'
-    });
+  /**
+   * collection of story items
+   * @type Array<DataObjectStories>
+   */
+  public items:Array<DataObjectStories>;
+
+  /**
+   * collection of meta information from my stories
+   * @type DataObjectMeta
+   */
+  public itemMeta:DataObjectMeta;
+
+  /**
+   * domain
+   * @todo remove
+   * @type {string}
+   */
+  public domain:string = 'http://backend.app-evangelist.com';
+
+  /**
+   * constructor
+   * @param {NavController} navCtrl
+   * @param {DataProvider} DataProvider
+   */
+  constructor(public navCtrl: NavController, public DataProvider:DataProvider) {
+    this.DataProvider.connect();
   }
 
+  /**
+   * ionic is done with loading
+   */
   ionViewDidLoad() {
-    this.client.getItems('apps')
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+    this.DataProvider.getApps().then(response => {
+      this.items = response.data;
+      this.itemMeta = response.meta;
+      console.log(this.items);
+    });
+
   }
 
 }
