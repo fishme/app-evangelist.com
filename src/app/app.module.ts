@@ -4,32 +4,34 @@ import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
-import {ListPage} from '../pages/list/list';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {DataProvider} from "../providers/DataProvider"
+import {AboutUsPageModule} from '../pages/about-us/about-us.module';
+import {StoryDetailPageModule} from "../pages/stories/story-detail/story-detail.module";
+import {Deeplinks} from '@ionic-native/deeplinks';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage
+    HomePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AboutUsPageModule, StoryDetailPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage
+    HomePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     DataProvider,
+    Deeplinks,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

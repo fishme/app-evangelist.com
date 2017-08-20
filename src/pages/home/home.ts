@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
-import {DataProvider, DataObjectStories, DataObjectMeta} from '../../providers/DataProvider';
+import {DataProvider, DataObjectItemStories, DataObjectMeta} from '../../providers/DataProvider';
 
 
 @Component({
@@ -13,7 +13,7 @@ export class HomePage {
    * collection of story items
    * @type Array<DataObjectStories>
    */
-  public items:Array<DataObjectStories>;
+  public items:Array<DataObjectItemStories>;
 
   /**
    * collection of meta information from my stories
