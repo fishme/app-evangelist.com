@@ -59,7 +59,6 @@ export class MyApp {
 
       this.DataProvider.getNavigation().then(response => {
         this.pages = response.data;
-        console.log(this.pages);
       });
 
     });
@@ -69,7 +68,14 @@ export class MyApp {
    * open navigation page
    * @param {DataObjectItemNavigation} page
    */
-  openPage(page: DataObjectItemNavigation) {
-    this.nav.push(page.slug);
+  openPage(page?: DataObjectItemNavigation) {
+    if (!page) {
+      this.nav.setRoot('about-us');
+    } else {
+      this.nav.setRoot(page.slug);
+    }
+  }
+  backToHome() {
+    this.nav.setRoot(HomePage);
   }
 }
