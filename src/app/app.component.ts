@@ -59,6 +59,7 @@ export class MyApp {
 
       this.DataProvider.getNavigation().then(response => {
         this.pages = response.data;
+        console.log(this.pages);
       });
 
     });

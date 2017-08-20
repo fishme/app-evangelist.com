@@ -41,6 +41,7 @@ export interface DataObjectMeta {
 export interface DataObjectItemStories {
   created_date: Date;
   description: string;
+  category: string;
   id: number;
   name: string;
   sort: number;
@@ -52,6 +53,7 @@ export interface DataObjectItemNavigation {
   id: number;
   name: string;
   segment: string;
+  icon: string;
   slug: string;
   sort: number;
   status: number;

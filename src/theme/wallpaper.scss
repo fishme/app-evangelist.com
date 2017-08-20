@@ -1,0 +1,6 @@
+
+@each $name in '01' '02' {
+  .wallpaper-#{$name} {
+    background: url('../assets/wallpaper/#{$name}.png') no-repeat;
+  }
+}

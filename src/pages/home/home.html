@@ -7,13 +7,10 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content padding class="wallpaper-02">
   <ion-row>
-    <ion-col *ngFor="let item of items">{{item.name}} <img src="{{domain}}{{item.icon['data']['url']}}" ></ion-col>
+    <ion-col *ngFor="let item of items"><div class="appIcon icon-{{item.category}}"><span>{{item.name}}</span></div></ion-col>
   </ion-row>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
 
 

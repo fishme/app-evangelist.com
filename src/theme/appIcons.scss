@@ -1,0 +1,17 @@
+.appIcon {
+  width:76px;
+  height: 76px;
+  border-radius: 20px;
+  @each $name in 'android' 'apple' 'cordova' 'ionic' {
+    &.icon-#{$name} {
+      background-image: url('../assets/app_icons/#{$name}.png');
+    }
+  }
+  span {
+    position: absolute;
+    bottom: -14px;
+    color: #fff;
+    width: 76px;
+    text-align: center;
+  }
+}
